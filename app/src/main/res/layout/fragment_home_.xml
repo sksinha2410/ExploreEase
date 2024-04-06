@@ -18,6 +18,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Enjoy your life with us!"
+                android:textSize="18sp"
+                android:layout_marginStart="7dp"
+                android:textStyle="bold"
                 android:textColor="@color/black"/>
 
             <EditText

@@ -34,7 +34,7 @@ class Home_Fragment : Fragment() {
 
         rvBlog.itemAnimator = null
         val options: FirebaseRecyclerOptions<Blog?> = FirebaseRecyclerOptions.Builder<Blog>().
-        setQuery(dataBaseRef.child("Posts"), Blog::class.java).build()
+        setQuery(dataBaseRef.child("Blog"), Blog::class.java).build()
         blogAdapter = BlogAdapter(options)
         rvBlog.adapter = blogAdapter
         blogAdapter.startListening()
