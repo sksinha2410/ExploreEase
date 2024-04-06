@@ -27,11 +27,16 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_destination_map)
 
         // Initialize Google Maps
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.maps) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.maps) as? SupportMapFragment
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this)
+        } else {
+            // Handle the case where the fragment is not found
+            // This could be due to incorrect ID or layout setup
+        }
 
         // Initialize Places API
         Places.initialize(applicationContext, getString(R.string.map_api))

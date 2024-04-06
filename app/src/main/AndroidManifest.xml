@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -35,6 +37,13 @@
         <activity
             android:name=".Activities.DestinationMapActivity"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Chatbot.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Geminichat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +52,8 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+        </activity>
     </application>
 
 </manifest>
