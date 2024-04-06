@@ -23,7 +23,6 @@ import com.sksinha2410.exploreease.R
 class PostAdapter (options: FirebaseRecyclerOptions<Posts?>) :
     FirebaseRecyclerAdapter<Posts?, PostAdapter .userAdapterHolder?>(options) {
 
-    private var likeRef = FirebaseDatabase.getInstance().reference.child("Posts")
     override fun onBindViewHolder(
         holder: userAdapterHolder,
         position: Int,
