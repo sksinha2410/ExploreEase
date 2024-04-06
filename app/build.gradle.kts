@@ -84,6 +84,9 @@ dependencies {
 
     implementation ("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    implementation ("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.android.gms:play-services-location:18.2.0")
     implementation("com.google.android.libraries.places:places:3.4.0")
 }
