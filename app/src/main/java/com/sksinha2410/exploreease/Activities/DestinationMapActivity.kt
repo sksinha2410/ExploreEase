@@ -1,4 +1,4 @@
-package com.sksinha2410.exploreease
+package com.sksinha2410.exploreease.Activities
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
