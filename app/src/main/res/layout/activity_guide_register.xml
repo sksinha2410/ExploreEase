@@ -139,6 +139,20 @@
                 android:singleLine="false"
                 android:textColorHint="#8E8E8E"
                 android:autofillHints="Description" />
+            <EditText
+                android:id="@+id/etCharge"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Number"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/sign_corner"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:hint="Charge for Tour"
+                android:inputType="number"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginHorizontal="22dp">
                 <ImageView
                     android:layout_width="20dp"

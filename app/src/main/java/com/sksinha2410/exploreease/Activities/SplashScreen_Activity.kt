@@ -11,18 +11,24 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.ingray.samagam.R
 import com.sksinha2410.exploreease.R
 
 class SplashScreen_Activity : AppCompatActivity() {
-    private lateinit var start:TextView
+    private lateinit var btnSignIn:TextView
+    private lateinit var btnSignUp:TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        start = findViewById(R.id.start)
-        start.setOnClickListener{
+        btnSignIn = findViewById(R.id.btnSignIn)
+        btnSignUp = findViewById(R.id.btnSignUp)
+        btnSignIn.setOnClickListener{
             val mainIntent = Intent(this, Login_Activity::class.java)
+            startActivity(mainIntent)
+            finish()
+        }
+        btnSignUp.setOnClickListener{
+            val mainIntent = Intent(this, SignUp_Activity::class.java)
             startActivity(mainIntent)
             finish()
         }

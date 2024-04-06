@@ -3,12 +3,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.Home_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="blank" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Enjoy your life with us!"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Name"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/search_corner"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:hint="Search your favorite place here..."
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Destinations"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:layout_marginTop="26dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/rounded_corner"
+                android:id="@+id/rvTopDestinations"
+                android:orientation="horizontal"
+                app:spanCount="2"
+                android:padding="10dp"
+                android:scrollbars="horizontal"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                android:scrollbarSize="5dp"
+                android:scrollbarDefaultDelayBeforeFade="1000"
+                android:scrollbarFadeDuration="1000"
+                android:scrollbarAlwaysDrawVerticalTrack="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blogs"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:layout_marginTop="26dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/rounded_corner"
+                android:id="@+id/rvBlog"
+                android:orientation="vertical"
+                app:spanCount="2"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                android:scrollbarSize="5dp"
+                android:scrollbarDefaultDelayBeforeFade="1000"
+                android:scrollbarFadeDuration="1000"
+                android:scrollbarAlwaysDrawVerticalTrack="true"/>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
