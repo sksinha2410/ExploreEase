@@ -35,7 +35,6 @@ class SignUp_Activity : AppCompatActivity() {
     private lateinit var sEmail:String
     private lateinit var sPass:String
     private lateinit var ivBack: ImageView
-    private lateinit var cPass:String
     private lateinit var sName:String
     private var dref: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -55,7 +54,7 @@ class SignUp_Activity : AppCompatActivity() {
             sName = name.text.toString()
 
 
-            val b:Boolean=checkAllTheConditions(sEmail,sPass,cPass,sName)
+            val b:Boolean=checkAllTheConditions(sEmail,sPass,sName)
 
             if (b){
                 auth.createUserWithEmailAndPassword(sEmail,sPass).
@@ -121,7 +120,7 @@ class SignUp_Activity : AppCompatActivity() {
         }
     }
 
-    private fun checkAllTheConditions(email:String, password:String,confirmPass:String,name: String):Boolean {
+    private fun checkAllTheConditions(email:String, password:String,name: String):Boolean {
         if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show()
         }else if (TextUtils.isEmpty(email)) {
