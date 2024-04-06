@@ -122,7 +122,6 @@ class Login_Activity : AppCompatActivity()  {
         email = findViewById(R.id.etEmail)
         password = findViewById(R.id.etPassword)
         reset = findViewById(R.id.tvForgotPassword)
-        signup = findViewById(R.id.ivBack)
         signin= findViewById(R.id.btnSignIn)
         auth = Firebase.auth
         ivBack= findViewById(R.id.ivBack)

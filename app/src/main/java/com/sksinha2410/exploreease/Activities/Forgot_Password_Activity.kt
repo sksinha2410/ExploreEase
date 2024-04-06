@@ -39,22 +39,19 @@ class Forgot_Password_Activity : AppCompatActivity() {
 
         btnReset.setOnClickListener{
             sEmail = email.text.toString()
-            if(!sEmail.contains("nitp.ac.in")){
-                Toast.makeText(applicationContext,"Invalid Email Format", Toast.LENGTH_SHORT).show()
 
-            }else{
-                autth.sendPasswordResetEmail(sEmail).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        Toast.makeText(applicationContext,"Email Sent Sucessfully", Toast.LENGTH_SHORT).show()
-                        var i = Intent(this,Login_Activity::class.java)
-                        i.putExtra("email",sEmail)
-                        startActivity(i)
-                        finish()
-                    }else{
-                        Toast.makeText(applicationContext,"Can't send email!!", Toast.LENGTH_SHORT).show()
-                    }
+            autth.sendPasswordResetEmail(sEmail).addOnCompleteListener{
+                if(it.isSuccessful){
+                    Toast.makeText(applicationContext,"Email Sent Sucessfully", Toast.LENGTH_SHORT).show()
+                    var i = Intent(this,Login_Activity::class.java)
+                    i.putExtra("email",sEmail)
+                    startActivity(i)
+                    finish()
+                }else{
+                    Toast.makeText(applicationContext,"Can't send email!!", Toast.LENGTH_SHORT).show()
                 }
             }
+
         }
     }
 }

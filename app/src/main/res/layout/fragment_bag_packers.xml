@@ -3,12 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.BagPackers_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="blank" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Name"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/search_corner"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:hint="Looking for a bag packer? Search here..."
+                android:inputType="text" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/recycle_bg"
+                android:id="@+id/rvBlog"
+                android:orientation="vertical"
+                app:spanCount="2"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                android:scrollbarSize="5dp"
+                android:scrollbarDefaultDelayBeforeFade="1000"
+                android:scrollbarFadeDuration="1000"
+                android:scrollbarAlwaysDrawVerticalTrack="true"/>
 
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

@@ -26,22 +26,13 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="270dp">
-                    <ImageView
-                        android:id="@+id/ivBack"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="48dp"
-                        android:src="@drawable/back_btn"
-                        app:tint="#5400E8" />
-
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/ivProfile"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:background="@drawable/circle_strock_profile"
-                        android:layout_alignBottom="@+id/ivBack"
                         android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="-119dp"
                         android:src="@drawable/profile" />
 

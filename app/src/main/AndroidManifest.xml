@@ -18,14 +18,20 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.AddTripActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.GuideRegister_Activity"
             android:exported="false" />
         <activity
-            android:name=".Activities.SplashScreen_Activity"
+            android:name=".Activities.AddTripActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activities.SplashScreen_Activity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.Forgot_Password_Activity"
             android:exported="false" />
@@ -42,21 +48,15 @@
 
         <activity
             android:name=".Activities.DestinationMapActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Chatbot.MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Geminichat">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.Geminichat"/>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true" />
+            android:exported="false"/>
     </application>
 
 </manifest>
