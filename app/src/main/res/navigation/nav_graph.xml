@@ -7,27 +7,22 @@
 
     <fragment
         android:id="@+id/fragment_Home"
-        android:name="com.ingray.samagam.Fragments.Fragment_Home"
+        android:name="com.sksinha2410.exploreease.Fragment.Home_Fragment"
         android:label="fragment__home"
-        tools:layout="@layout/fragment__home" />
+        tools:layout="@layout/fragment_home_" />
     <fragment
         android:id="@+id/liveEventsFragment"
-        android:name="com.ingray.samagam.Fragments.LiveEventsFragment"
+        android:name="com.sksinha2410.exploreease.Fragment.BagPackers_Fragment"
         android:label="fragment_live_events"
-        tools:layout="@layout/fragment_live_events" />
+        tools:layout="@layout/fragment_bag_packers" />
     <fragment
         android:id="@+id/framentFeed"
-        android:name="com.ingray.samagam.Fragments.FramentFeed"
+        android:name="com.sksinha2410.exploreease.Fragment.ChatBot_Fragment"
         android:label="fragment_frament_feed"
-        tools:layout="@layout/fragment_frament_feed" />
+        tools:layout="@layout/fragment_chat_bot_" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.ingray.samagam.Fragments.ProfileFragment"
+        android:name="com.sksinha2410.exploreease.Fragment.Profile_Fragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.ingray.samagam.Fragments.NotificationFragment"
-        android:label="fragment_notification"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_profile_" />
 </navigation>
