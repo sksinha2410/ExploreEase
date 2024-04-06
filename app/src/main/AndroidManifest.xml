@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.DestinationMapActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
