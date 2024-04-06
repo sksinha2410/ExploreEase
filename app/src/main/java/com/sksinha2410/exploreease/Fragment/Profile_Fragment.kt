@@ -40,7 +40,6 @@ class Profile_Fragment : Fragment() {
     private lateinit var recyclerPost: RecyclerView
     val Pick_image=1
     private lateinit var ppAdapter: PostAdapter
-    private lateinit var progress: ProgressBar
     var storageReference = FirebaseStorage.getInstance().reference
     lateinit var purl:String
     override fun onCreateView(
@@ -69,7 +68,6 @@ class Profile_Fragment : Fragment() {
 
         if (requestCode == Pick_image && resultCode == Activity.RESULT_OK && data != null) {
             val resultUri: Uri = data.data!!
-            progress.visibility = View.VISIBLE
             uploadImageToFirebase(resultUri)
             profileImage.setImageURI(resultUri)
         }
@@ -112,24 +110,19 @@ class Profile_Fragment : Fragment() {
                     if (purl != null) {
                         deRef.child(FirebaseAuth.getInstance().currentUser?.uid.toString())
                             .updateChildren(users)
-
                     }
                 } catch (e: Exception) {
                 }
                 Glide.with(view.context).load(purl).into(profileImage)
-                progress.visibility = View.INVISIBLE
             }
         }.addOnFailureListener { // Handle the failure to upload
             Toast.makeText(view.context, "Failed.", Toast.LENGTH_LONG).show()
-            progress.visibility = View.INVISIBLE
         }
     }
-
 
     private fun openGallery() {
         val gallery= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(gallery,Pick_image)
-
     }
     private fun callById() {
         profileImage = view.findViewById(R.id.ivProfile)
@@ -137,5 +130,4 @@ class Profile_Fragment : Fragment() {
         profileName = view.findViewById(R.id.tvName)
         recyclerPost = view.findViewById(R.id.profile_recycler)
     }
-
 }
