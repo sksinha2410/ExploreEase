@@ -2,4 +2,5 @@
     <string name="app_name">ExploreEase</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="map_api">AIzaSyDZG5AM0tXoTCQD_eE7nGNOFfJCHz-rD0s</string>
 </resources>
