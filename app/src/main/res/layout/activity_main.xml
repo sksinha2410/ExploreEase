@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
             android:layout_weight="0.3"
-            android:background="#aaaaaaa">
+            android:background="#aaaaaa">
 
 
             <TextView
@@ -66,9 +66,8 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_gravity="end"
-                android:background=""
                 android:padding="10dp"
-                android:src="" />
+                android:src="@color/black" />
         </RelativeLayout>
     </LinearLayout>
 
