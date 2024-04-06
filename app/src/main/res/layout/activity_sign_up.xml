@@ -26,6 +26,7 @@
         android:textColor="@color/black"/>
 
     <EditText
+        android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:autofillHints="Name"
@@ -40,6 +41,7 @@
         android:inputType="text" />
 
     <EditText
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:autofillHints="Email"
@@ -53,6 +55,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress" />
     <EditText
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/sign_corner"
@@ -67,6 +70,7 @@
         android:autofillHints="Password" />
 
     <Button
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginHorizontal="22dp"
@@ -94,6 +98,7 @@
             android:text="Already have an account? "/>
         
         <TextView
+            android:id="@+id/tvLogIn"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="Sign in"
