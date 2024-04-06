@@ -8,6 +8,7 @@ import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
@@ -18,6 +19,11 @@ import com.sksinha2410.exploreease.Activities.MainActivity
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.random.Random
+
+
+private const val CHANNEL_ID = "my_channel"
+private const val CHANNEL_NAME = "My Channel"
+private const val CHANNEL_DESCRIPTION = "My channel description"
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class FirebaseService:FirebaseMessagingService() {
