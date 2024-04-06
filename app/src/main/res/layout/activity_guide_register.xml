@@ -34,7 +34,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/etName"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:autofillHints="Name"
