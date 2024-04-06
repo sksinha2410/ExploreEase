@@ -21,5 +21,6 @@
     <style name="bottomNavigationView">
         <item name="colorSecondaryContainer">@color/extra_light_pink</item>
     </style>
+    <style name="Theme.Geminichat" parent="android:Theme.Material.Light.NoActionBar" />
 
 </resources>
