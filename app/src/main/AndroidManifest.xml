@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.SplashScreen_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Forgot_Password_Activity"
             android:exported="false" />
         <activity

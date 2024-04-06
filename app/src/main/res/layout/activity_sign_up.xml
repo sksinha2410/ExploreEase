@@ -9,6 +9,7 @@
     android:background="@color/white"
     android:orientation="vertical">
     <ImageView
+        android:id="@+id/ivBack"
         android:layout_width="33dp"
         android:layout_height="33dp"
         android:layout_marginStart="15dp"
