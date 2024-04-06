@@ -3,12 +3,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.Profile_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="blank_fragment" />
+        android:orientation="vertical"
+        android:background="@color/platinum">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:cardCornerRadius="@dimen/_15ssp"
+            android:backgroundTint="@color/platinum"
+            android:layout_marginHorizontal="@dimen/_10sdp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="270dp">
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="48dp"
+                        android:src="@drawable/back_btn"
+                        app:tint="#5400E8" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/circle_strock_profile"
+                        android:layout_alignBottom="@+id/ivBack"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="-119dp"
+                        android:src="@drawable/profile" />
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_alignTop="@+id/ivProfile"
+                        android:layout_marginStart="21dp"
+                        android:layout_marginTop="25dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:layout_toEndOf="@+id/ivProfile"
+                        android:text="@string/exploreease"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tvAbout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvName"
+                        android:layout_alignTop="@+id/tvName"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_toEndOf="@+id/ivProfile"
+                        android:text="Travel"
+                        android:singleLine="false"
+                        android:textColor="#434343"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/platinum"
+                    android:minHeight="2000dp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    android:layout_marginHorizontal="3dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/profile_recycler"
+                        android:nestedScrollingEnabled="false"
+                        app:spanCount="2"
+                        android:paddingHorizontal="2dp"
+                        android:paddingVertical="5dp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </FrameLayout>
