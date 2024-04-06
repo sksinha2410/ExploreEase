@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -14,12 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
+        <activity
+            android:name=".Activities.Forgot_Password_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SignUp_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Login_Activity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDZG5AM0tXoTCQD_eE7nGNOFfJCHz-rD0s" />
+
         <activity
             android:name=".Activities.DestinationMapActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +40,7 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
