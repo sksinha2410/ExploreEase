@@ -1,11 +1,30 @@
 package com.sksinha2410.exploreease
 
+import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_ONE_SHOT
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat.getSystemService
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+import com.sksinha2410.exploreease.Activities.MainActivity
+import java.net.HttpURLConnection
+import java.net.URL
+import kotlin.random.Random
+
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 class FirebaseService:FirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
         try {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val notificationID = Random.nextInt()
             //test image

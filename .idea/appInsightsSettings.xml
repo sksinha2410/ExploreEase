@@ -27,10 +27,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.sksinha2410.exploreease" />
+                  <option name="mobileSdkAppId" value="1:1005368385352:android:5f653c5cb614df634e9d7d" />
+                  <option name="projectId" value="exploreease-8073c" />
+                  <option name="projectNumber" value="1005368385352" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

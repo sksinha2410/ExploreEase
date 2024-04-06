@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005368385352",
+    "project_id": "exploreease-8073c",
+    "storage_bucket": "exploreease-8073c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005368385352:android:5f653c5cb614df634e9d7d",
+        "android_client_info": {
+          "package_name": "com.sksinha2410.exploreease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEgTP0JEf7TNsnaPb_af77k_4myQQXfGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
