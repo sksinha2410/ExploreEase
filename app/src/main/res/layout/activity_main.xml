@@ -66,9 +66,8 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_gravity="end"
-                android:background=""
                 android:padding="10dp"
-                android:src="" />
+                android:src="@color/black" />
         </RelativeLayout>
     </LinearLayout>
 
