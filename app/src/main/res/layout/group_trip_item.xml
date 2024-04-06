@@ -8,6 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        app:cardElevation="5dp"
         android:background="@drawable/item_bg"
         android:layout_margin="8dp">
         <androidx.constraintlayout.widget.ConstraintLayout
