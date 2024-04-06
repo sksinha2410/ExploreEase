@@ -52,6 +52,8 @@ class GuideRegister_Activity : AppCompatActivity() {
                 language+=radioButton2.text.toString()+","
             }
 
+
+
             var map:Map<String,Any> = mapOf(
                 "name" to name.text.toString(),
                 "contact" to contact.text.toString(),
