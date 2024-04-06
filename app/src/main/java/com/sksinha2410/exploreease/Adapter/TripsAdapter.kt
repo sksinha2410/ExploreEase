@@ -71,6 +71,7 @@ class TripsAdapter (options: FirebaseRecyclerOptions<Trips?>) :
         var location:TextView
         var amount:TextView
         var description:TextView
+        var cardView:CardView
 
         init {
             date =innerView.findViewById(R.id.date)
@@ -78,6 +79,7 @@ class TripsAdapter (options: FirebaseRecyclerOptions<Trips?>) :
             location=innerView.findViewById(R.id.location)
             amount =innerView.findViewById(R.id.amount)
             description =innerView.findViewById(R.id.description)
+            cardView =innerView.findViewById(R.id.cardView)
         }
     }
 }

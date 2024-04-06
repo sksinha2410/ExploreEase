@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.AddTripActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.GuideRegister_Activity"
             android:exported="false" />
         <activity
@@ -39,7 +42,7 @@
 
         <activity
             android:name=".Activities.DestinationMapActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Chatbot.MainActivity"
             android:exported="true"
@@ -53,7 +56,7 @@
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
