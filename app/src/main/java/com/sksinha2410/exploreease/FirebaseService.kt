@@ -60,7 +60,7 @@ class FirebaseService:FirebaseMessagingService() {
                 .setLargeIcon(bitmap)
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setSmallIcon(R.drawable.logo)
+                .setSmallIcon(R.drawable.home)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .build()
