@@ -107,8 +107,8 @@ class GuideRegister_Activity : AppCompatActivity() {
                     "description" to description.text.toString(),
                     "language" to language,
                     "verified"  to "false",
-                    "charge" to charge.text.toString(),
-                    "image" to purl
+                    "price" to charge.text.toString(),
+                    "purl" to purl
                 )
 
                 if (currUser != null) {
