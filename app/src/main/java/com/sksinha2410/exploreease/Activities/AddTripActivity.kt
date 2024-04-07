@@ -41,7 +41,7 @@ class AddTripActivity : AppCompatActivity() {
         end_date = findViewById(R.id.enddate)
         etName = findViewById(R.id.etName)
         etAge = findViewById(R.id.etAge)
-        details = findViewById(R.id.description)
+        details = findViewById(R.id.etDescription)
         etContact = findViewById(R.id.etContact)
         etAddress = findViewById(R.id.etAddress)
         tourLocation = findViewById(R.id.tourLocation)

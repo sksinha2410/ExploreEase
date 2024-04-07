@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.ingray.samagam.Adapters.TripsAdapter
 import com.sksinha2410.exploreease.Activities.AddTripActivity
 import com.sksinha2410.exploreease.DataClass.Trips
 import com.sksinha2410.exploreease.R
+import com.sksinha2410.exploreease.R.*
 
 class ChatBot_Fragment : Fragment() {
     private lateinit var recTrip: RecyclerView
@@ -24,14 +26,13 @@ class ChatBot_Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view:View =  inflater.inflate(R.layout.fragment_chat_bot_, container, false)
-        val addTrip :Button = view.findViewById(R.id.btnAddTrip)
-
+        val view:View =  inflater.inflate(layout.fragment_chat_bot_, container, false)
+        val addTrip : FloatingActionButton = view.findViewById(R.id.btnAddTrip)
+        recTrip = view.findViewById(R.id.recTrip)
         addTrip.setOnClickListener{
             val intent: Intent = Intent(activity, AddTripActivity::class.java)
             startActivity(intent)
         }
-
         recTrip.itemAnimator = null
         val options: FirebaseRecyclerOptions<Trips?> = FirebaseRecyclerOptions.Builder<Trips>().
         setQuery(deRef, Trips::class.java).build()
@@ -40,5 +41,4 @@ class ChatBot_Fragment : Fragment() {
         ppAdapter.startListening()
         return view
     }
-    
 }
