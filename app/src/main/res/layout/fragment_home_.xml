@@ -24,21 +24,38 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
-            <EditText
-                android:id="@+id/etSearch"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:autofillHints="Name"
-                android:layout_marginHorizontal="22dp"
-                android:background="@drawable/search_corner"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="26dp"
-                android:textColor="#414141"
-                android:textColorHint="#8E8E8E"
-                android:textSize="20sp"
-                android:hint="Search your favorite place here..."
-                android:inputType="text" />
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:autofillHints="Name"
+                    android:layout_marginStart="22dp"
+                    android:background="@drawable/search_corner"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginTop="26dp"
+                    android:textColor="#414141"
+                    android:textColorHint="#8E8E8E"
+                    android:textSize="20sp"
+                    android:layout_weight="9"
+                    android:hint="Search your favorite place here..."
+                    android:inputType="text" />
+                <ImageView
+                    android:id="@+id/ivMap"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginEnd="18dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_map"/>
 
+
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.AddBlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.GuideRegister_Activity"
             android:exported="false" />
         <activity
@@ -25,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.SplashScreen_Activity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,10 +56,10 @@
             android:name=".Chatbot.MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Geminichat"/>
+            android:theme="@style/Theme.Geminichat" />
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
