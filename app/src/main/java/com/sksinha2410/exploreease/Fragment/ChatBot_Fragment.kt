@@ -6,12 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
-import com.ingray.samagam.Adapters.TripsAdapter
+import com.sksinha2410.exploreease.Adapter.TripsAdapter
 import com.sksinha2410.exploreease.Activities.AddTripActivity
 import com.sksinha2410.exploreease.DataClass.Trips
 import com.sksinha2410.exploreease.R
