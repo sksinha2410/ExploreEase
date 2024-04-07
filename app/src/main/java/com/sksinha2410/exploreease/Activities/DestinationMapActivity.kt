@@ -6,6 +6,9 @@ import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,31 +16,41 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken
+import com.google.android.libraries.places.api.model.PlaceLikelihood
+import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest
+import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.sksinha2410.exploreease.R
 import java.io.IOException
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.api.model.Place.Field
 
-
-class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
+class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMapClickListener {
     private lateinit var mMap: GoogleMap
     private lateinit var placesClient: PlacesClient
     private var fusedLocationClient: FusedLocationProviderClient? = null
     var C_Latitude = 0.0
     var C_Longitude:kotlin.Double = 0.0
     private val MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1
-    var keyword = "atm"
     var radius = "1000"
+    private var previousMarker: Marker? = null
+    private lateinit var addPlace:TextView
+    private var clickedLatitude = 0.0
+    private var clickedLongitude = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_destination_map)
+        addPlace = findViewById(R.id.addPlace)
 
         // Initialize Google Maps
         val mapFragment = supportFragmentManager.findFragmentById(R.id.maps) as? SupportMapFragment
@@ -59,6 +72,13 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Check location permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+        }
+
+        addPlace.setOnClickListener {
+            val intent = Intent(this, AddPlaceActivity::class.java)
+            intent.putExtra("latitude", clickedLatitude)
+            intent.putExtra("longitude", clickedLongitude)
+            startActivity(intent)
         }
     }
 
@@ -120,10 +140,12 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
                         MarkerOptions().position(CurrntLocation).title("Current Position")
                     ) //marker
                     mMap.animateCamera(yourLocation)
-//                    GetNearbyPlace()
+
                 }
             }
         }
+
+        mMap.setOnMapClickListener(this)
 
 
 
@@ -137,6 +159,51 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
             searchLocation(query)
         }
     }
+
+
+    override fun onMapClick(latLng: LatLng) {
+        // When the map is clicked, this method will be called
+        // Get the latitude and longitude of the clicked location
+         clickedLatitude = latLng.latitude
+         clickedLongitude = latLng.longitude
+        addPlace.visibility = View.VISIBLE
+
+
+        // Display latitude and longitude as a toast message
+        val message = "Latitude: $clickedLatitude, Longitude: $clickedLongitude"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+
+
+        previousMarker?.remove()
+
+        // Do something with the latitude and longitude, such as adding a marker
+        val clickedLocation = LatLng(clickedLatitude, clickedLongitude)
+        val newMarker = mMap.addMarker(MarkerOptions().position(clickedLocation).title("Clicked Location"))
+
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(clickedLocation))
+
+        // Update the reference to the previous marker
+        previousMarker = newMarker
+
+        // You can also perform reverse geocoding to get address details if needed
+        reverseGeocode(clickedLatitude, clickedLongitude)
+    }
+    private fun reverseGeocode(latitude: Double, longitude: Double) {
+        val geocoder = Geocoder(this)
+        try {
+            val addressList = geocoder.getFromLocation(latitude, longitude, 1)
+            if (addressList != null && addressList.isNotEmpty()) {
+                val address = addressList[0]
+                val addressDetails = address.getAddressLine(0) // Get the first address line
+                // Do something with the address details
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+
 
     private fun searchLocation(query: String) {
         val token = AutocompleteSessionToken.newInstance()

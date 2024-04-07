@@ -49,4 +49,5 @@ object ChatData {
             return ChatModel("Error", null, false)
         }
     }
+
 }

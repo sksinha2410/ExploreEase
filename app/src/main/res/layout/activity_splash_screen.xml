@@ -54,7 +54,7 @@
             android:background="@drawable/sign_btn"
             android:text="SIGN IN"
             android:textSize="23sp"
-            android:textColor="@color/black"
+            android:textColor="#D4C2BB"
             android:gravity="center_vertical|center_horizontal"
             android:textStyle="bold"
             android:layout_marginTop="50dp"/>
@@ -68,7 +68,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="SIGN UP"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="#D4C2BB"
             android:textStyle="bold"
             android:layout_below="@+id/btnSignIn"
             android:layout_marginTop="20dp"/>

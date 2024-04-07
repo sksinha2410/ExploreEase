@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ExploreEase"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.AddPlaceActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.BeGuideActivity"
             android:exported="false" />
         <activity
