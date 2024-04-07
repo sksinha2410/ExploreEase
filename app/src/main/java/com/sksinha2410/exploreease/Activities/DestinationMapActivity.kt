@@ -19,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -32,6 +33,11 @@ import com.sksinha2410.exploreease.R
 import java.io.IOException
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.model.Place.Field
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMapClickListener {
     private lateinit var mMap: GoogleMap
@@ -45,12 +51,14 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMapClic
     private lateinit var addPlace:TextView
     private var clickedLatitude = 0.0
     private var clickedLongitude = 0.0
+    private lateinit var database: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_destination_map)
         addPlace = findViewById(R.id.addPlace)
+        database = FirebaseDatabase.getInstance().reference.child("Places")
 
         // Initialize Google Maps
         val mapFragment = supportFragmentManager.findFragmentById(R.id.maps) as? SupportMapFragment
@@ -76,8 +84,8 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMapClic
 
         addPlace.setOnClickListener {
             val intent = Intent(this, AddPlaceActivity::class.java)
-            intent.putExtra("latitude", clickedLatitude)
-            intent.putExtra("longitude", clickedLongitude)
+            intent.putExtra("latitude", clickedLatitude.toString())
+            intent.putExtra("longitude", clickedLongitude.toString())
             startActivity(intent)
         }
     }
@@ -146,6 +154,67 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback,OnMapClic
         }
 
         mMap.setOnMapClickListener(this)
+
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (placeSnapshot in dataSnapshot.children) {
+                    val latitude = placeSnapshot.child("placeLatitude").value.toString()
+                    Toast.makeText(this@DestinationMapActivity, latitude, Toast.LENGTH_SHORT).show()
+                    val longitude = placeSnapshot.child("placeLongitude").value.toString()
+                    val placeName = placeSnapshot.child("name").value.toString()
+                    val placeType = placeSnapshot.child("placeType").value.toString()
+
+                    // Create LatLng object for the location
+                    val location = LatLng(latitude.toDouble(), longitude.toDouble())
+
+                    // Add marker to the map
+
+                    if (placeType == "Temple"){
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(location)
+                                .title(placeName)
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.tem))
+                        )
+                    }else if (placeType == "Trek") {
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(location)
+                                .title(placeName)
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.hike))
+                        )
+
+                    }else if(placeType == "Hotel"){
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(location)
+                                .title(placeName)
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.hotel))
+                        )
+                    }else if(placeType == "Tourist Place") {
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(location)
+                                .title(placeName)
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.hike))
+                        )
+                    }else{
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(location)
+                                .title(placeName)
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.hike))
+                        )
+                    }
+
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle database error
+                Toast.makeText(this@DestinationMapActivity, "Failed to fetch data", Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
 

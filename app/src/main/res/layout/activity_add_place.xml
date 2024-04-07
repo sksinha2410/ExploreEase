@@ -87,6 +87,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
@@ -130,16 +131,17 @@
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold"/>
+
                 <RadioButton
-                    android:id="@+id/hindi"
+                    android:id="@+id/activity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Activities/Advanture"
-                    android:layout_marginTop="8dp"
                     android:layout_marginHorizontal="28dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Activities/Advanture"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </RadioGroup>
 
             <TextView
