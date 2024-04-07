@@ -1,6 +1,9 @@
 package com.sksinha2410.exploreease.Activities
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -20,6 +23,7 @@ import com.google.android.libraries.places.api.net.FetchPlaceRequest
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.sksinha2410.exploreease.R
+import java.io.IOException
 
 class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
@@ -75,45 +79,33 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
         val defaultLocation = LatLng(DEFAULT_LATITUDE, DEFAULT_LONGITUDE)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, DEFAULT_ZOOM))
 
-        fetchNearbyRestaurants(defaultLocation)
+        val intent: Intent = intent
+        val query: String = intent.getStringExtra("query") ?: ""
+
+
+        if (query.isNotEmpty()) {
+//            searchLocation(query)
+        }
     }
 
-    private fun fetchNearbyRestaurants(location: LatLng) {
-        val restaurantType = "restaurant"
-        val searchLength = 0.27 // Approximately 30 km in latitude (1 degree ~ 111 km)
-        val searchBreadth = 0.27 // Approximately 30 km in longitude (1 degree ~ 111 km at the equator)
-
+    private fun searchLocation(query: String) {
         val token = AutocompleteSessionToken.newInstance()
 
-        val request = FindAutocompletePredictionsRequest.builder()
-            .setLocationBias(RectangularBounds.newInstance(
-                LatLng(location.latitude - (searchLength / 2), location.longitude - (searchBreadth / 2)),
-                LatLng(location.latitude + (searchLength / 2), location.longitude + (searchBreadth / 2))
-            ))
-            .setTypeFilter(TypeFilter.ESTABLISHMENT)
-            .setSessionToken(token)
-            .setQuery(restaurantType)
-            .build()
-
-
-
-        // Perform the nearby search request
-        placesClient.findAutocompletePredictions(request).addOnSuccessListener { response ->
-            for (prediction in response.autocompletePredictions) {
-                // Get details of the place
-                val placeId = prediction.placeId
-                val placeFields = listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG)
-                val placeRequest = FetchPlaceRequest.builder(placeId, placeFields).build()
-                placesClient.fetchPlace(placeRequest).addOnSuccessListener { placeResponse ->
-                    val place = placeResponse.place
-                    val placeLatLng = place.latLng
-                    val placeName = place.name
-                    // Add marker for the restaurant
-                    mMap.addMarker(MarkerOptions().position(placeLatLng!!).title(placeName))
-                }
+        if (query != null && query.isNotEmpty()) {
+            val location = query
+            var addressList: List<Address>? = null
+            val geocoder = Geocoder(this)
+            try {
+                addressList = geocoder.getFromLocationName(location, 1)
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
-        }.addOnFailureListener { exception ->
-            // Handle errors
+            if (addressList != null && addressList.isNotEmpty()) {
+                val address = addressList[0]
+                val latLng = LatLng(address.latitude, address.longitude)
+                mMap.addMarker(MarkerOptions().position(latLng).title(location))
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+            }
         }
     }
 
