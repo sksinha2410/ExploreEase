@@ -1,6 +1,6 @@
 package com.sksinha2410.exploreease.DataClass
 
-data class Blog(
+data class BlogData(
     var blogId: String,
     var blogDescription: String,
     var blogImage: String,

@@ -9,16 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.sksinha2410.exploreease.DataClass.Blog
+import com.sksinha2410.exploreease.DataClass.BlogData
 import com.sksinha2410.exploreease.R
 
-class BlogAdapter(options: FirebaseRecyclerOptions<Blog?>) :
-    FirebaseRecyclerAdapter<Blog?, BlogAdapter .userAdapterHolder?>(options) {
+class BlogAdapter(options: FirebaseRecyclerOptions<BlogData?>) :
+    FirebaseRecyclerAdapter<BlogData?, BlogAdapter .userAdapterHolder?>(options) {
 
     override fun onBindViewHolder(
         holder: userAdapterHolder,
         position: Int,
-        model: Blog
+        model: BlogData
     ) {
         Glide.with(holder.image.context).load(model.blogImage).into(holder.image)
         holder.userName.text = model.blogAuthor

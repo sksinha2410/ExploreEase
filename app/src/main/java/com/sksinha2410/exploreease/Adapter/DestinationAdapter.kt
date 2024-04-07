@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.sksinha2410.exploreease.DataClass.Blog
 import com.sksinha2410.exploreease.DataClass.Destination
 import com.sksinha2410.exploreease.R
 
