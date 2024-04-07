@@ -52,18 +52,18 @@ class Home_Fragment : Fragment() {
         rvBlog.adapter = blogAdapter
         blogAdapter.startListening()
 
-        recyclerDestination.itemAnimator = null
-        val option: FirebaseRecyclerOptions<Destination?> = FirebaseRecyclerOptions.Builder<Destination>().
-        setQuery(dataBaseRef.child("Destination"), Destination::class.java).build()
-        destinationAdapter = DestinationAdapter(option)
-        recyclerDestination.adapter = destinationAdapter
-        destinationAdapter.startListening()
+//        recyclerDestination.itemAnimator = null
+//        val option: FirebaseRecyclerOptions<Destination?> = FirebaseRecyclerOptions.Builder<Destination>().
+//        setQuery(dataBaseRef.child("Destination"), Destination::class.java).build()
+//        destinationAdapter = DestinationAdapter(option)
+//        recyclerDestination.adapter = destinationAdapter
+//        destinationAdapter.startListening()
 
         return view
     }
 
     private fun callById() {
-        recyclerDestination=view.findViewById(R.id.rvTopDestinations)
+//        recyclerDestination=view.findViewById(R.id.rvTopDestinations)
         rvBlog=view.findViewById(R.id.rvBlog)
         ivMap=view.findViewById(R.id.ivMap)
         etSearch=view.findViewById(R.id.etSearch)
