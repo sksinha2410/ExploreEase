@@ -47,7 +47,6 @@ class TripsAdapter (options: FirebaseRecyclerOptions<Trips?>) :
         holder.location.text = model.tour_location
         holder.amount.text = model.budget.plus("₹ per person")
         holder.description.text = model.details
-        Toast.makeText(holder.date.context, model.to, Toast.LENGTH_SHORT).show()
         val fromdate = model.from
         val datefrom = fromdate.substring(8,10)+fromdate.substring(4,8)+fromdate.substring(0,4)
         val todate = model.to
