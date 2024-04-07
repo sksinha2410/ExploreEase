@@ -65,28 +65,21 @@
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 android:layout_marginTop="26dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="8dp"
                 android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/rounded_corner"
                 android:id="@+id/rvTopDestinations"
                 android:orientation="horizontal"
                 app:spanCount="2"
                 android:padding="10dp"
-                android:scrollbars="horizontal"
-                android:scrollbarStyle="insideOverlay"
-                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
-                android:scrollbarTrackVertical="@drawable/scrollbar_track"
-                android:scrollbarSize="5dp"
-                android:scrollbarDefaultDelayBeforeFade="1000"
-                android:scrollbarFadeDuration="1000"
-                android:scrollbarAlwaysDrawVerticalTrack="true"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,28 +88,21 @@
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 android:layout_marginTop="26dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="8dp"
                 android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="500dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/rounded_corner"
                 android:id="@+id/rvBlog"
                 android:orientation="vertical"
                 app:spanCount="2"
                 android:padding="10dp"
-                android:scrollbars="vertical"
-                android:scrollbarStyle="insideOverlay"
-                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
-                android:scrollbarTrackVertical="@drawable/scrollbar_track"
-                android:scrollbarSize="5dp"
-                android:scrollbarDefaultDelayBeforeFade="1000"
-                android:scrollbarFadeDuration="1000"
-                android:scrollbarAlwaysDrawVerticalTrack="true"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

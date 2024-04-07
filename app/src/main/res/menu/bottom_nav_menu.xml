@@ -15,6 +15,10 @@
         android:id="@id/framentFeed"
         android:icon="@drawable/travel"
         android:title="Tour"/>
+    <item
+        android:id="@+id/framentGuide"
+        android:icon="@drawable/guide"
+        android:title="Guide"/>
 
     <item
         android:id="@id/profileFragment"

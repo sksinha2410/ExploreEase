@@ -21,6 +21,11 @@
         android:label="fragment_frament_feed"
         tools:layout="@layout/fragment_chat_bot_" />
     <fragment
+        android:id="@+id/framentGuide"
+        android:name="com.sksinha2410.exploreease.Fragment.GuideFragment"
+        android:label="fragment_frament_guide"
+        tools:layout="@layout/fragment_guide" />
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.sksinha2410.exploreease.Fragment.Profile_Fragment"
         android:label="fragment_profile"
