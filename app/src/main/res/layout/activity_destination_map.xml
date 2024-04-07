@@ -57,6 +57,18 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/addPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="+Add Place"
+            android:background="@drawable/search_corner"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
 
     </RelativeLayout>
 
