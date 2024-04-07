@@ -33,6 +33,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.sksinha2410.exploreease.Chatbot.MainActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,14 +43,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     var permission_notif = false
     lateinit var permissions: Array<String>
-    lateinit var notification: ImageView
+    lateinit var chatbot: ImageView
 
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        notification = findViewById(R.id.notification)
+        chatbot = findViewById(R.id.chatbot)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions = arrayOf<String>(android.Manifest.permission.POST_NOTIFICATIONS)
         }
@@ -78,5 +79,10 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNav.setupWithNavController(navController)
+
+        chatbot.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
