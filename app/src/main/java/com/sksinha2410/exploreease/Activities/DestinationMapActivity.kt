@@ -1,4 +1,5 @@
 package com.sksinha2410.exploreease.Activities
+
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,6 +9,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,18 +19,21 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken
-import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.api.model.RectangularBounds
-import com.google.android.libraries.places.api.model.TypeFilter
-import com.google.android.libraries.places.api.net.FetchPlaceRequest
-import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.sksinha2410.exploreease.R
 import java.io.IOException
 
+
 class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var placesClient: PlacesClient
+    private var fusedLocationClient: FusedLocationProviderClient? = null
+    var C_Latitude = 0.0
+    var C_Longitude:kotlin.Double = 0.0
+    private val MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1
+    var keyword = "atm"
+    var radius = "1000"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +43,10 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.maps) as? SupportMapFragment
         if (mapFragment != null) {
             mapFragment.getMapAsync(this)
+            Places.initialize(applicationContext,"@string/key");
+            placesClient = Places.createClient(this)
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         } else {
             // Handle the case where the fragment is not found
             // This could be due to incorrect ID or layout setup
@@ -79,12 +89,52 @@ class DestinationMapActivity : AppCompatActivity(), OnMapReadyCallback {
         val defaultLocation = LatLng(DEFAULT_LATITUDE, DEFAULT_LONGITUDE)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, DEFAULT_ZOOM))
 
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            ) {
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                    MY_PERMISSIONS_REQUEST_READ_CONTACTS
+                )
+            }
+        } else {
+            fusedLocationClient!!.lastLocation.addOnSuccessListener(
+                this
+            ) { location ->
+                if (location != null) {
+                    C_Latitude = location.latitude
+                    C_Longitude = location.longitude
+                    val CurrntLocation = LatLng(C_Latitude, C_Longitude)
+                    val yourLocation = CameraUpdateFactory.newLatLngZoom(CurrntLocation, 19f) //zoom
+                    mMap.addMarker(
+                        MarkerOptions().position(CurrntLocation).title("Current Position")
+                    ) //marker
+                    mMap.animateCamera(yourLocation)
+//                    GetNearbyPlace()
+                }
+            }
+        }
+
+
+
+
+
         val intent: Intent = intent
         val query: String = intent.getStringExtra("query") ?: ""
 
 
         if (query.isNotEmpty()) {
-//            searchLocation(query)
+            searchLocation(query)
         }
     }
 
