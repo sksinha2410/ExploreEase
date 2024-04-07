@@ -21,11 +21,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.ingray.samagam.Adapters.PostAdapter
 import com.sksinha2410.exploreease.DataClass.Posts
+import com.sksinha2410.exploreease.DataClass.Users
 import com.sksinha2410.exploreease.R
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.ByteArrayOutputStream
@@ -50,6 +54,20 @@ class Profile_Fragment : Fragment() {
         view= inflater.inflate(R.layout.fragment_profile_, container, false)
 
         callById()
+
+        deRef.child(FirebaseAuth.getInstance().currentUser?.uid.toString()).addValueEventListener(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(Users::class.java)
+                profileName.text = user?.name
+                About.text = user?.userType
+                Glide.with(view.context).load(user?.purl).into(profileImage)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(view.context, "Failed", Toast.LENGTH_LONG).show()
+            }
+        })
 
         recyclerPost.itemAnimator = null
         val options: FirebaseRecyclerOptions<Posts?> = FirebaseRecyclerOptions.Builder<Posts>().

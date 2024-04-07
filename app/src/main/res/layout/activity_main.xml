@@ -23,20 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_80sdp"
             android:layout_weight="0.3"
-            android:background="#aaaaaa">
+            android:background="#ffffff">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_80sdp"
-                android:text="@string/exploreease"
-                android:shadowColor="#A4000000"
-                android:shadowRadius="1"
-                android:textStyle="bold"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/londrina_solid"
-                android:gravity="center_vertical"
-                android:textSize="@dimen/_50sdp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_80sdp"
@@ -44,10 +33,10 @@
                 android:shadowColor="#B9903DC5"
                 android:shadowRadius="1"
                 android:textStyle="bold"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/londrina_outline"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/audiowide"
                 android:gravity="center_vertical"
-                android:textSize="@dimen/_50sdp" />
+                android:textSize="35sp" />
 
 
         </RelativeLayout>
@@ -57,7 +46,7 @@
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="end"
             android:layout_weight="1"
-            android:background="#aaaaaa">
+            android:background="#ffffff">
 
             <ImageView
                 android:id="@+id/chatbot"
