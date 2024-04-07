@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.sksinha2410.exploreease.DataClass.Blog
-import com.sksinha2410.exploreease.DataClass.BlogData
 import com.sksinha2410.exploreease.R
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -58,7 +57,8 @@ class AddBlogActivity : AppCompatActivity() {
         }
 
         register.setOnClickListener{
-            if (name.text.toString().isEmpty() || location.text.toString().isEmpty() || description.text.toString().isEmpty() || purl.isEmpty()) {
+            if (name.text.toString().isEmpty() || location.text.toString().isEmpty() || description.text.toString().isEmpty() ||
+                purl.isEmpty()) {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }else{
@@ -72,8 +72,9 @@ class AddBlogActivity : AppCompatActivity() {
         blogs.blogAddress = location.text.toString()
         blogs.blogDescription = description.text.toString()
         blogs.blogImage = purl
-        blogs.blogId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        dataBaseRef.push().setValue(blogs)
+        val calendar = Calendar.getInstance().timeInMillis.toString()
+        blogs.blogId = calendar
+        dataBaseRef.child(calendar).setValue(blogs)
         Toast.makeText(this, "Blog Added", Toast.LENGTH_SHORT).show()
         finish()
     }
