@@ -48,7 +48,7 @@ class GuideRegister_Activity : AppCompatActivity() {
     private var language:String = ""
     val Pick_image=1
     var storageReference = FirebaseStorage.getInstance().reference
-    lateinit var purl:String
+    var purl:String=""
     private var dref: DatabaseReference = FirebaseDatabase.getInstance().getReference("Guide")
     private var duref: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -96,7 +96,7 @@ class GuideRegister_Activity : AppCompatActivity() {
                 language+=radioButton2.text.toString()+","
             }
             val b:Boolean=checkAllTheConditions(contact.text.toString(),location.text.toString()
-                ,pincode.text.toString(),description.text.toString())
+                ,pincode.text.toString(),description.text.toString(),purl)
 
             if(b) {
                 val map: Map<String, Any> = mapOf(
@@ -107,18 +107,20 @@ class GuideRegister_Activity : AppCompatActivity() {
                     "description" to description.text.toString(),
                     "language" to language,
                     "verified"  to "false",
-                    "charge" to charge.text.toString(),
-                    "image" to purl
+                    "price" to charge.text.toString(),
+                    "purl" to purl
                 )
 
                 if (currUser != null) {
                     dref.child(currUser).setValue(map)
+                    Toast.makeText(this, "Registration Complete!\n Your application will proceed soon", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
             }
         }
     }
 
-    private fun checkAllTheConditions(contact:String, address:String,pincode:String,description: String):Boolean {
+    private fun checkAllTheConditions(contact:String, address:String,pincode:String,description: String, purl:String):Boolean {
         if (TextUtils.isEmpty(contact)) {
             Toast.makeText(this, "Enter Contact No", Toast.LENGTH_SHORT).show()
         }else if (TextUtils.isEmpty(address)) {
@@ -127,6 +129,8 @@ class GuideRegister_Activity : AppCompatActivity() {
             Toast.makeText(this, "Enter Pincode", Toast.LENGTH_SHORT).show()
         } else if (TextUtils.isEmpty(description)) {
             Toast.makeText(this, "Write work description", Toast.LENGTH_SHORT).show()
+        }else if (TextUtils.isEmpty(purl)) {
+            Toast.makeText(this, "Upload ID proof", Toast.LENGTH_SHORT).show()
         }else{
             return true;
         }
