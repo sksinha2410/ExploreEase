@@ -43,7 +43,7 @@ class GuideRegister_Activity : AppCompatActivity() {
     private lateinit var description:EditText
     private lateinit var charge:EditText
     private lateinit var register: Button
-    private lateinit var back: Button
+    private lateinit var back: ImageView
     private lateinit var image: ImageView
     private var language:String = ""
     val Pick_image=1
@@ -132,9 +132,6 @@ class GuideRegister_Activity : AppCompatActivity() {
         }
         return false
     }
-
-
-
 
     private fun openGallery() {
         val gallery= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
