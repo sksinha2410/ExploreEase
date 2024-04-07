@@ -26,9 +26,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_below="@+id/tvGuide"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_below="@+id/tvGuide"
             android:background="@drawable/recycle_bg"
             android:id="@+id/rvGuide"
             android:layout_width="match_parent"

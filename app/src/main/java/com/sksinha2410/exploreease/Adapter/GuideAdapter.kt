@@ -21,7 +21,6 @@ import com.sksinha2410.exploreease.R
 
 class GuideAdapter(options: FirebaseRecyclerOptions<Guide?>) :
     FirebaseRecyclerAdapter<Guide?, GuideAdapter.userAdapterHolder?>(options) {
-        val dRef = FirebaseDatabase.getInstance().getReference("Guides")
     override fun onBindViewHolder(
         holder: userAdapterHolder,
         position: Int,

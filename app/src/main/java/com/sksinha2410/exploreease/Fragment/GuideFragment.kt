@@ -30,16 +30,20 @@ class GuideFragment : Fragment() {
         view = inflater.inflate(R.layout.fragment_guide, container, false)
         val addBlog: FloatingActionButton = view.findViewById(R.id.btnAdd)
         tvGuide = view.findViewById(R.id.rvGuide)
+
+        try {
+            tvGuide.itemAnimator = null
+            val options: FirebaseRecyclerOptions<Guide?> = FirebaseRecyclerOptions.Builder<Guide>().
+            setQuery(deRef, Guide::class.java).build()
+            ppAdapter = GuideAdapter(options)
+            tvGuide.adapter = ppAdapter
+            ppAdapter.startListening()
+        }
+        catch(e:Exception){}
         addBlog.setOnClickListener{
             val intent: Intent = Intent(activity, BeGuideActivity::class.java)
             startActivity(intent)
         }
-        tvGuide.itemAnimator = null
-        val options: FirebaseRecyclerOptions<Guide?> = FirebaseRecyclerOptions.Builder<Guide>().
-        setQuery(deRef, Guide::class.java).build()
-        ppAdapter = GuideAdapter(options)
-        tvGuide.adapter = ppAdapter
-        ppAdapter.startListening()
 
         return view
     }
