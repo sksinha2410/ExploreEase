@@ -32,7 +32,7 @@ class AddTripActivity : AppCompatActivity() {
     private lateinit var trip:Trips
     private lateinit var button: Button
     val dRef = FirebaseDatabase.getInstance().getReference("Trips")
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_trip)
@@ -71,11 +71,6 @@ class AddTripActivity : AppCompatActivity() {
             dRef.child(calendar).setValue(trip)
             finish()
         }
-
-
-
-
-
     }
 
     private fun showDatePickerDialog(str:String) {
@@ -103,4 +98,5 @@ class AddTripActivity : AppCompatActivity() {
 
     private fun getDateString(calendar: Calendar): String {
         return inputDateFormat.format(calendar.time)
-    }}
+    }
+}
