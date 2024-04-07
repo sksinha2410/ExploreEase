@@ -1,10 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.AddPlaceActivity">
+    tools:context=".Activities.SignUp_Activity"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/back_btn"
+                app:tint="#5400E8" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Places"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_marginTop="26dp"
+                android:layout_marginStart="20dp"
+                android:textColor="@color/black"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Name"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/sign_corner"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:hint="Place Name"/>
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Address"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/sign_corner"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:hint="Address"
+                android:inputType="textPostalAddress"/>
+            <EditText
+                android:id="@+id/etNumber"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:autofillHints="Address"
+                android:layout_marginHorizontal="22dp"
+                android:background="@drawable/sign_corner"
+                android:paddingHorizontal="8dp"
+                android:layout_marginTop="26dp"
+                android:textColor="#414141"
+                android:textColorHint="#8E8E8E"
+                android:textSize="20sp"
+                android:hint="Contact Number"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:paddingHorizontal="28dp"
+                android:text="Place Type"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/hotel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hotel"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="28dp"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/temple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temple"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="28dp"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+                <RadioButton
+                    android:id="@+id/trek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trek"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="28dp"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+                <RadioButton
+                    android:id="@+id/trstPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tourist Place"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="28dp"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+                <RadioButton
+                    android:id="@+id/hindi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activities/Advanture"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="28dp"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:paddingHorizontal="28dp"
+                android:text="Image"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/ivID"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/upload_id" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="22dp"
+                android:text="Add New Place"
+                android:layout_marginBottom="40dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:background="@drawable/sign_btn"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
