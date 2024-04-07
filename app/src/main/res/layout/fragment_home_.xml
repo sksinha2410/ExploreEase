@@ -29,21 +29,23 @@
                 android:layout_height="wrap_content"
                 android:weightSum="10"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/etSearch"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
-                    android:autofillHints="Name"
                     android:layout_marginStart="22dp"
-                    android:background="@drawable/search_corner"
-                    android:paddingHorizontal="10dp"
                     android:layout_marginTop="26dp"
+                    android:layout_weight="9"
+                    android:autofillHints="Name"
+                    android:background="@drawable/search_corner"
+                    android:hint="Search your favorite place here..."
+                    android:inputType="text"
+                    android:paddingHorizontal="10dp"
                     android:textColor="#414141"
                     android:textColorHint="#8E8E8E"
-                    android:textSize="20sp"
-                    android:layout_weight="9"
-                    android:hint="Search your favorite place here..."
-                    android:inputType="text" />
+                    android:textSize="20sp" />
+
                 <ImageView
                     android:id="@+id/ivMap"
                     android:layout_width="0dp"
