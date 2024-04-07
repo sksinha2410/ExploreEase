@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_Home,
                 R.id.framentFeed,
                 R.id.liveEventsFragment,
+                R.id.framentGuide,
                 R.id.profileFragment
             )
         )
