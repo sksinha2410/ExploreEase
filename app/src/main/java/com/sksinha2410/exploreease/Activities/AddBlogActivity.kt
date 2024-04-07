@@ -26,7 +26,7 @@ import java.io.IOException
 import java.util.Calendar
 
 class AddBlogActivity : AppCompatActivity() {
-    private lateinit var name:TextView
+    private lateinit var name:EditText
     private lateinit var image:ImageView
     private lateinit var location:EditText
     private lateinit var description:EditText

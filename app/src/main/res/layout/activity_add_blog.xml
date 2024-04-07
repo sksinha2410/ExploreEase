@@ -33,7 +33,7 @@
                 android:layout_marginStart="20dp"
                 android:textColor="@color/black"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
