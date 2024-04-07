@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.ingray.samagam.Adapters.BlogAdapter
 import com.sksinha2410.exploreease.Adapter.DestinationAdapter
-import com.sksinha2410.exploreease.DataClass.Blog
+import com.sksinha2410.exploreease.DataClass.BlogData
 import com.sksinha2410.exploreease.DataClass.Destination
 import com.sksinha2410.exploreease.R
 
@@ -33,8 +31,8 @@ class Home_Fragment : Fragment() {
         val dataBaseRef= FirebaseDatabase.getInstance().reference
 
         rvBlog.itemAnimator = null
-        val options: FirebaseRecyclerOptions<Blog?> = FirebaseRecyclerOptions.Builder<Blog>().
-        setQuery(dataBaseRef.child("Blog"), Blog::class.java).build()
+        val options: FirebaseRecyclerOptions<BlogData?> = FirebaseRecyclerOptions.Builder<BlogData>().
+        setQuery(dataBaseRef.child("Blog"), BlogData::class.java).build()
         blogAdapter = BlogAdapter(options)
         rvBlog.adapter = blogAdapter
         blogAdapter.startListening()
